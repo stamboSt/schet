@@ -1,0 +1,57 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index.html</title>
+
+
+</head>
+
+<body class="body_centered_1">
+<div class="container_1_1">
+<P>Hi there this is the new SCHETOVODSTVO page</P>
+<table>
+<tr>
+<td><a href="{% url 'schetovodstvo:upload_file_prodajbi'%}">Качване на файл - продажби</a></td>
+<td><a href="{% url 'schetovodstvo:upload_file_pokupki'%}">Качване на файл - покупки</a></td>
+<td><a href="{% url 'schetovodstvo:upload_file_zaplati'%}">Качване на файл - заплати</a></td>
+<td><a href="{% url 'schetovodstvo:upload_file_bank'%}">Качване на файл - банка</a></td>
+</tr>
+</table>
+
+<P><a href="{% url 'schetovodstvo:oborotna_vedomost'%}">Оборотна ведомост</a></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P><a href="{% url 'schetovodstvo:function_display'%}">Филтриране по критерии</a></P>
+</div>
+
+<div class="main_1_1_3">
+	<div>
+
+	</div> 
+	
+	
+               
+
+
+	<div>
+		
+                {% block content %}
+                {% endblock %}
+                
+
+		
+	</div>
+	
+        
+
+</div>
+
+
+	
+</body>
+</html>

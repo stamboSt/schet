@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<P>This is the VEDOMOST</P>
+<table border=1 cellpadding=2>
+
+
+{% for value in smetkoplan_obj.values %}
+{% if value.s_debit|add:value.s_kredit > 0%}
+<tr>
+<td>{{value.smetka }}</td>
+<td>{{value.s_ime}}</td>
+<td>{{value.n_debit|floatformat:2 }}</td>
+<td>{{value.n_kredit|floatformat:2 }}</td>
+<td>{{value.debit|floatformat:2 }}</td>
+<td>{{value.kredit|floatformat:2 }}</td>
+<td>{{value.s_debit|floatformat:2 }}</td>
+<td>{{value.s_kredit|floatformat:2 }}</td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+
+
+
+
+
+{% endblock content %}

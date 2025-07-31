@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<P>This is the DISPLAY</P>
+
+<form method="get">
+<!--{% csrf_token %}-->
+  {{ form_criterii.as_p }}
+  <button type="submit">Filter</button>
+</form>
+
+
+{% if x %}
+<p>{{xx}}</p>
+<p>{{x}}</p>
+{% endif %}
+
+
+<!--
+<table border=1>
+{% if zaiavka != None %}
+{% for row in zaiavka %}
+        <tr>
+          <td>{{ row.doc }}</td>
+          <td>{{ row.suma }}</td>
+          <td>{{ row.debit }}</td>
+          <td>{{ row.credit }}</td>
+        </tr>
+{% endfor %}
+{% endif %}
+</table>
+-->
+{% if formset != None %}
+<p>FORM</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+      <thead>
+        <tr>
+          <th>month-202501</th><th>document</th><th>date</th><th>firma</th><th>opisanie</th><th>suma</th><th>debit</th><th>credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for form in formset %}
+          <tr>
+          {{ form.id }}
+            <td>{{ form.first_f }}</td>
+            <td>{{ form.doc }}</td>
+            <td>{{ form.date }}</td>
+            <td>{{ form.firma }}</td>
+            <td>{{ form.opisanie }}</td>
+            <td>{{ form.suma }}</td>            
+            <td>{{ form.debit }}</td>            
+            <td>{{ form.credit }}</td> 
+            <td>{{ form.DELETE }}</td>            
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit">Save Changes</button>
+  </form>
+{% endif %}
+<!--
+<table border=1 cellpadding=2>
+{% for value in smetkoplan_obj.values %}
+{% if value.s_debit|add:value.s_kredit > 0%}
+<tr>
+<td>{{value.smetka }}</td>
+<td>{{value.s_ime}}</td>
+<td>{{value.n_debit|floatformat:2 }}</td>
+<td>{{value.n_kredit|floatformat:2 }}</td>
+<td>{{value.debit|floatformat:2 }}</td>
+<td>{{value.kredit|floatformat:2 }}</td>
+<td>{{value.s_debit|floatformat:2 }}</td>
+<td>{{value.s_kredit|floatformat:2 }}</td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+-->
+
+
+
+
+{% endblock content %}

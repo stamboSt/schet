@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<P>This is the UPLOAD form</P>
+<h2>Upload a file</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+ 
+{% if lines1 %}
+        <h3>File Contents:</h3>
+        <pre>{{ lines1 }}</pre>
+{% endif %}
+
+{% endblock content %}
